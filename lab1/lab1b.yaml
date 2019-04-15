@@ -1,0 +1,17 @@
+Description: Deploy an EC2 instance in an AWS Default VPC
+
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-035be7bafff33b6b6
+      InstanceType: t2.micro
+      Tags:
+        - Key: Name
+          Value: My EC2 Instance
+        - Key: Role
+          Value: Training
+        - Key: Join Example
+          Value: !Join [ -, [ one, string, from, many, parts ] ]
+        - Key: Account ID Reference Example
+          Value: !Ref AWS::AccountId
