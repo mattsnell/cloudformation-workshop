@@ -41,6 +41,7 @@ Resources:
 
   S3AppBucket:
     Type: "AWS::S3::Bucket"
+    DeletionPolicy: Retain
     Properties:
       Tags:
         - Key: "Role"
