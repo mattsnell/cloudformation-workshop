@@ -156,9 +156,3 @@ Outputs:
   natgatewaybid:
     Description: ID of NAT Gateway B
     Value: !Ref NatGatewayB
-
-  appbucketurl:
-    Description: Shared Infrastructure App Bucket
-    Value: !GetAtt S3AppBucket.WebsiteURL
-    Export: # added to export
-      Name: sharedinf-appbucketurl
