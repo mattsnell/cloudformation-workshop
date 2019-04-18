@@ -23,7 +23,7 @@ Resources:
       CidrBlock: !Ref vpccidr
       Tags:
         - Key: "Name"
-        - Value: "lab-vpc"
+          Value: "lab-vpc"
   
   IGW:
     Type: "AWS::EC2::InternetGateway"
