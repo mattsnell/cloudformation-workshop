@@ -32,6 +32,9 @@ Resources:
     Type: "AWS::EC2::VPC"
     Properties:
       CidrBlock: !Ref vpccidr
+      Tags:
+        - Key: "Name"
+        - Value: "lab-vpc"
 
   IGW:
     Type: "AWS::EC2::InternetGateway"
