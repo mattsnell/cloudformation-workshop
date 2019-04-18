@@ -35,30 +35,13 @@ Resources:
 
   IGW:
     Type: "AWS::EC2::InternetGateway"
+
   S3AppBucket:
-    DeletionPolicy: Retain
     Type: "AWS::S3::Bucket"
     Properties:
-      AccessControl: PublicRead
-      WebsiteConfiguration:
-        ErrorDocument: index.html
-        IndexDocument: index.html
-
-  BucketPolicyApp:
-    Type: "AWS::S3::BucketPolicy"
-    Properties:
-      Bucket: !Ref S3AppBucket
-      PolicyDocument:
-        Statement:
-          -
-            Sid: "ABC123"
-            Action:
-              - "s3:GetObject"
-            Effect: Allow
-            Resource: !Join ["", ["arn:aws:s3:::", !Ref S3AppBucket, "/*"]]
-            Principal:
-              AWS:
-                - "*"
+      Tags:
+        - Key: "Role"
+          Value: "Persistent Data Storage"
 
   GatewayAttach:
     Type: "AWS::EC2::VPCGatewayAttachment"
